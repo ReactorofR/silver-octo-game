@@ -52,12 +52,18 @@ class Grid
   end
 
   def draw
-    @tiles.each_index do |collumn,x|
-      collumn.each_index do |tile,y|
-        puts "Tile(#{x},#{y}): #{tile}"
+    tile_colors = {
+          'dirt' => Gosu::Color.argb(255,102,51,0),
+          'rock' => Gosu::Color.argb(255,153,153,153),
+          'ruby' => Gosu::Color.argb(255,155,17,30),
+          'diamond' => Gosu::Color.argb(255,185,242,255),
+          'sapphire' => Gosu::Color.argb(255,15,82,186)
+        }
+    @tiles.each_with_index do |column,x|
+      column.each_with_index do |tile,y|
+        Gosu.draw_rect(x * @widht,y * @height,@widht,@height,tile_colors[tile['type']])
       end
     end
-    #Gosu.draw_rect()
   end
 
   private
@@ -74,7 +80,6 @@ class Grid
         }
       end
     end
-    puts tiles
     tiles
   end
 
