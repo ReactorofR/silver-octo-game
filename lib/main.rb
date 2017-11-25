@@ -4,7 +4,7 @@ class Digger
     def initialize
         @image = Gosu::Image.new("../assets/digger.png")
         @x = Gosu.screen_width / 4 - @image.width * 2
-        @y = 200
+        @y = 180
         @inverted = false
     end
 
